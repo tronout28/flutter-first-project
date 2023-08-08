@@ -13,7 +13,6 @@ class _HomePageState extends State<HomePage> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     Siswa bajuri= new Siswa("Bajuri", "bajuri@gmail.com");
     Siswa dapin = new Siswa("Dapin", "haidar@gmail.com");
@@ -35,21 +34,32 @@ class _HomePageState extends State<HomePage> {
       ),
       body: Center(
         child: Container(
+          padding: EdgeInsets.all(16),
           child: ListView.builder(
-              padding: const EdgeInsets.all(8),
-              itemCount: siswa11PPLG2?.length,
-              itemBuilder: (BuildContext context, int index) {
-                return Container(
-                  height: 50,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(siswa11PPLG2![index].name),
-                      Text(siswa11PPLG2![index].email),
-                    ],
-                  )
-                );
-              }
+            itemCount: siswa11PPLG2?.length,
+            itemBuilder: (BuildContext context, int index) {
+              return Card(
+                elevation: 3,
+                margin: EdgeInsets.symmetric(vertical: 8),
+                child: ListTile(
+                  contentPadding: EdgeInsets.all(16),
+                  leading: Icon(Icons.person, size: 36),
+                  title: Text(
+                    siswa11PPLG2![index].name,
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  subtitle: Text(
+                    siswa11PPLG2![index].email,
+                    style: TextStyle(
+                      fontSize: 14,
+                    ),
+                  ),
+                ),
+              );
+            },
           ),
         ),
       ),
